@@ -26,7 +26,7 @@ stages {
    stage('Deploy container') 
    {
       steps {
-        sh 'ansible-playbook Ansible/deploycontainer.yaml -e "image_name=$repo image_tag=$BUILD_NUMBER"'
+        sh 'ansible-playbook Ansible/deploycontainer.yaml -e "image_name=$repo image_tag=v$BUILD_NUMBER"'
       }
     }
   }   

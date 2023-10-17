@@ -1,9 +1,10 @@
 pipeline {
     environment {
-        repo = "amishtm/pipelinedemo"
+        repo = "amishtm/pythonapp-pipeline"
     }
 
 agent any
+// demo 2
 stages {
     stage ('Docker Build') {
         steps {
@@ -26,7 +27,7 @@ stages {
    stage('Deploy container') 
    {
       steps {
-        sh 'ansible-playbook Ansible/deploycontainer.yaml -e "image_name=$repo image_tag=v$BUILD_NUMBER"'
+        sh 'ansible-playbook Ansible/pipeline.yaml -e "image_name=$repo image_tag=v$BUILD_NUMBER"'
       }
     }
   }   

@@ -23,12 +23,12 @@ stages {
         sh 'docker rmi $repo:v$BUILD_NUMBER'
       }
     }
-
-   }
-   stage('Deploy container') {
+   stage('Deploy container') 
+   {
       steps {
-        sh 'ansible-playbook Ansible/deploycontainer.yaml -e "image_name=$repo image_tag=v2"'
+        sh 'ansible-playbook Ansible/deploycontainer.yaml -e "image_name=$repo image_tag=$BUILD_NUMBER"'
       }
-    }   
-  }  
+    }
+  }   
+}  
  
